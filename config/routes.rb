@@ -1,4 +1,7 @@
 BookCart::Application.routes.draw do
+  resources :orders
+
+
   resources :line_items
 
 
@@ -10,7 +13,9 @@ BookCart::Application.routes.draw do
 
   root to: 'store#index' , as: 'store'
 
-  resources :products
+  resources :products do
+      get :who_bought,on: :member
+  end
 
 
   # The priority is based upon order of creation:
