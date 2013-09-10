@@ -1,21 +1,29 @@
 BookCart::Application.routes.draw do
-  resources :orders
-
-
-  resources :line_items
-
-
-  resources :carts
-
-
-  get "store/index"
-
 
   root to: 'store#index' , as: 'store'
+   get 'admin' => 'admin#index'
+  controller :sessions do
+   match '/login', to: 'sessions#new'
+  # match '/login' ,to: 'sessions#create'
+  match '/logout',to: 'sessions#destroy'
+   end
 
+ # scope '(:locale)' do
+
+  resources :users
+  resources :orders
+  resources :line_items
+  resources :carts
   resources :products do
       get :who_bought,on: :member
   end
+
+   get "store/index"
+
+
+  
+
+  
 
 
   # The priority is based upon order of creation:
