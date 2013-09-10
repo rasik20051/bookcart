@@ -1,6 +1,9 @@
 BookCart::Application.routes.draw do
 
-  root to: 'store#index' , as: 'store'
+  
+
+ get "store/index"
+  
    get 'admin' => 'admin#index'
   controller :sessions do
    match '/login', to: 'sessions#new'
@@ -8,7 +11,7 @@ BookCart::Application.routes.draw do
   match '/logout',to: 'sessions#destroy'
    end
 
- # scope '(:locale)' do
+  # scope '(:locale)' do
 
   resources :users
   resources :orders
@@ -18,7 +21,9 @@ BookCart::Application.routes.draw do
       get :who_bought,on: :member
   end
 
-   get "store/index"
+  root to: 'store#index' , as: 'store'
+# end
+  
 
 
   

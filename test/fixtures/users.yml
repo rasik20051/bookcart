@@ -2,10 +2,10 @@
 
 one:
   name: MyString
-  hashed_password: MyString
-  salt: MyString
+  password: MyString
+  password_confirmation: MyString
 
 two:
   name: MyString
-  hashed_password: MyString
-  salt: MyString
+  password: MyString
+  password_confirmation: MyString

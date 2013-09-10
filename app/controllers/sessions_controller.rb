@@ -9,7 +9,7 @@ skip_before_filter :authorize
 
   	user=User.find_by_name(params[:name])
 
-  	if user and User.authenticate(params[:password])
+  	if user && User.authenticate(params[:password])
   		session[:user_id]=user.id
   		redirect_to admin_url
   	else
